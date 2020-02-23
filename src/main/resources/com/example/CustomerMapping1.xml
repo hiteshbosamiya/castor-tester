@@ -1,0 +1,42 @@
+<!-- File: src/main/resources/com/example/CustomerMapping1.xml -->
+<mapping>
+    <class name="com.example.Customer">
+        <map-to xml="customer"/>
+        <field name="name" type="string">
+            <bind-xml name="name" node="element"/>
+        </field>
+        <field name="address" type="string">
+            <bind-xml name="address" node="element"/>
+        </field>
+        <field name="customerType" type="com.example.CustomerType" required="false">
+            <bind-xml name="customerType" node="element"/>
+        </field>
+        <field name="internalClassification" type="com.example.InternalClassification" required="false">
+            <bind-xml name="internalClassification" node="element"/>
+        </field>
+        <field name="orders" type="com.example.Order" collection="arraylist" container="false">
+            <bind-xml name="orders" node="element"/>
+        </field>
+        <field name="mainOrder" type="com.example.Order">
+            <bind-xml name="mainOrder" node="element" reference="true"/>
+        </field>
+    </class>
+    <class name="com.example.InternalClassification" auto-complete="false">
+        <map-to xml="internalClassification"/>
+        <field name="customerSegment" type="com.example.CustomerSegment" required="false">
+            <bind-xml location="customerSegment" name="customerSegment" node="element"/>
+        </field>
+    </class>
+    <class name="com.example.Order" identity="orderId">
+        <map-to xml="order"/>
+        <field name="orderId">
+            <bind-xml name="orderId" node="attribute"/>
+        </field>
+        <field name="origin">
+            <bind-xml name="origin" node="element"/>
+        </field>
+        <field name="target">
+            <bind-xml name="target" node="element"/>
+        </field>
+    </class>
+</mapping>
