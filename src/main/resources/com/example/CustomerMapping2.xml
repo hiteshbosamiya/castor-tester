@@ -24,7 +24,7 @@
     <class name="com.example.InternalClassification" auto-complete="false">
         <map-to xml="internalClassification"/>
         <field name="customerSegment" type="com.example.CustomerSegment" required="false" handler="com.example.EnumFieldHandler">
-            <bind-xml location="customerSegment" name="customerSegment" node="element"/>
+            <bind-xml name="customerSegment" node="element"/>
         </field>
     </class>
     <class name="com.example.Order" identity="orderId">
